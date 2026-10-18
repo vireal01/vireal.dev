@@ -1,77 +1,148 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="VMTR-01 Privacy Policy — Vireal" description="Privacy Policy for the VMTR-01 Android multichannel USB audio recorder.">
+<BaseLayout title="VMTR-01 Privacy Policy — Vireal" description="How VMTR-01 handles audio recordings, device permissions, analytics, diagnostics, retention, and privacy requests.">
   <div class="prose">
     <p class="eyebrow"><a href="/vmtr01/">VMTR-01</a> / Privacy</p>
     <h1>Privacy Policy</h1>
-    <p class="meta">Last updated: October 18, 2026</p>
+    <p class="meta">Effective and last updated: October 18, 2026</p>
 
     <p>
-      VMTR-01 is an Android app developed by Vireal for recording audio from compatible USB audio devices.
-      This policy explains how the app handles recordings, analytics, and diagnostics.
+      VMTR-01 — Multitrack Recorder (Android package <code>com.vireal.vmtr01</code>) is developed by
+      Vireal. This policy describes information VMTR-01 accesses on your device and information
+      processed by our service providers when you use the app. It applies to the Android app,
+      including its production release.
     </p>
 
-    <h2>Audio recordings</h2>
+    <h2>What the app does with your audio</h2>
     <p>
-      Recordings are stored on your Android device, including in shared device storage when you save or
-      publish them. VMTR-01 does not upload the contents of your audio recordings to Vireal or to analytics
-      and diagnostics providers. You control access to recordings you export or share from your device.
+      VMTR-01 records audio received from compatible USB audio interfaces, lets you monitor and play
+      recordings, and lets you export or share files. Audio samples and recording files are processed
+      on your Android device. The app does not intentionally upload audio recordings to Vireal,
+      Amplitude, or Sentry. If you choose to share a recording using Android's share sheet, the
+      destination app or service you select receives the content under its own privacy practices.
+    </p>
+    <p>
+      Recordings can be stored in shared media storage (including the <code>Music/VMTR-01/</code>
+      location) and may remain accessible to other apps with appropriate access. VMTR-01 also
+      processes local recording information such as file names, durations, track counts, and file
+      sizes to display and manage your recording library. We do not operate a cloud recording library.
     </p>
 
-    <h2>Analytics</h2>
-    <p>
-      VMTR-01 uses Amplitude Analytics to understand app usage, USB audio compatibility, and reliability.
-      Depending on the app build and actions taken, analytics data may include:
-    </p>
+    <h2>Permissions and device access</h2>
     <ul>
-      <li>app version, Android version, device manufacturer and model;</li>
-      <li>USB audio device characteristics and audio settings, such as channel count and sample rate;</li>
-      <li>feature use, recording duration, and success or failure events;</li>
-      <li>pseudonymous device or installation identifiers and technical SDK metadata.</li>
+      <li><strong>Microphone/audio recording:</strong> Android's <code>RECORD_AUDIO</code> permission supports the recording function. The app captures audio for the recording and monitoring features you use; it does not use your recordings for advertising.</li>
+      <li><strong>USB device access:</strong> VMTR-01 discovers compatible attached USB audio devices and requests USB access so it can record or monitor their audio.</li>
+      <li><strong>Audio/media library:</strong> <code>READ_MEDIA_AUDIO</code> (or <code>READ_EXTERNAL_STORAGE</code> on older Android versions) may be requested to find or reopen recordings in shared storage, including after local app data has been cleared.</li>
+      <li><strong>Notifications:</strong> <code>POST_NOTIFICATIONS</code> may be requested to show recording-related notifications. Recording and playback may also use Android foreground services.</li>
     </ul>
-
-    <h2>Crash and error diagnostics</h2>
     <p>
-      VMTR-01 uses Sentry to investigate crashes and application errors. Diagnostic events may include
-      exception information and stack traces, operation or error categories, and app, OS, and device
-      details. Network infrastructure used by these services may also process IP addresses as part of
-      providing their services. The app is designed to minimize personal information in diagnostic events.
+      You can manage app permissions in Android Settings. Denying a permission may prevent the
+      corresponding feature from working.
     </p>
 
-    <h2>Information not intentionally collected</h2>
+    <h2>Usage analytics (Amplitude)</h2>
     <p>
-      VMTR-01 is not designed to send audio contents, recording filenames, user-created recording
-      metadata, account names, email addresses, or precise location to Amplitude or Sentry.
-      VMTR-01 does not require an account to record audio.
+      Production versions of VMTR-01 use <a href="https://amplitude.com/privacy">Amplitude</a>
+      to understand feature usage, device compatibility, and recording reliability. The app sends
+      app-open and automatic session, application lifecycle, and screen-view events. It also sends
+      events for USB device connection, recording start, completion, failure, deletion, and sharing.
+      Event properties can include USB device name/model, channel count, sample rate, recording
+      duration, recording file size, failure category, elapsed time, and an error-message string.
+      The error-message field could contain additional diagnostic text depending on the failure.
+    </p>
+    <p>
+      Amplitude may also process automatically collected technical information, including app and
+      OS versions, device manufacturer/model, platform and language, event times, session data, and
+      a pseudonymous SDK-generated device/installation identifier. We do not require a user
+      account, and the app does not intentionally set an account identity for analytics.
+      The SDK is configured not to collect Android advertising ID, App Set ID, carrier, IP address
+      as an analytics property, or city, region, country, and precise coordinates. However, an IP
+      address is necessarily processed by network services when data is transmitted and provider
+      infrastructure may use it for routing, security, or other service operations. These SDK
+      settings do not remove data that a provider may already hold.
+    </p>
+    <p>
+      Analytics runs automatically in the production build; VMTR-01 currently does not provide an
+      in-app analytics opt-out switch. QA builds have app analytics disabled.
     </p>
 
-    <h2>Third-party services</h2>
+    <h2>Crash and error reporting (Sentry)</h2>
     <p>
-      Technical data may be processed by <a href="https://amplitude.com/privacy">Amplitude</a> and
-      <a href="https://sentry.io/privacy/">Sentry</a> under their respective privacy practices.
-      Processing and retention periods for service data are subject to their applicable settings
-      and policies. Some processing may take place outside your country of residence.
+      We use <a href="https://sentry.io/privacy/">Sentry</a> to investigate crashes and handled
+      errors. Reports can include exception types, sanitized error messages, stack traces,
+      operation categories, limited numeric diagnostics, timestamps, app release/environment,
+      Android version, and device manufacturer/model. Sentry may also process network metadata
+      needed to receive and protect reports, including the connecting IP address.
+    </p>
+    <p>
+      VMTR-01 disables Sentry's default personal-information submission, screenshots, view
+      hierarchy attachments, and user-interaction breadcrumbs/tracing. It removes user and request
+      objects, device names and IDs, and most unapproved diagnostic extras before sending events;
+      known file paths, content URIs, and credential-like values in exception messages are redacted.
+      These measures reduce exposure but cannot guarantee that arbitrary third-party exception
+      messages contain no personal information.
     </p>
 
-    <h2>Data controls</h2>
+    <h2>Why information is processed and who receives it</h2>
     <p>
-      You can remove recordings from your device using VMTR-01 or your device's file management tools.
-      Clearing app data or uninstalling the app may remove locally stored settings, but recordings
-      exported to shared storage may remain until you delete them. For questions about analytics or
-      diagnostic data, contact the developer using the link below.
+      We use technical analytics to understand which features are used and which USB configurations
+      work, and diagnostic reports to identify failures and improve app stability. Amplitude
+      processes analytics data and Sentry processes diagnostic data on our behalf. They are
+      separate service providers, and their infrastructure may process information in other
+      countries. We do not intentionally sell recordings or personal data, and we do not use
+      analytics or diagnostic information for targeted advertising.
     </p>
 
-    <h2>Changes</h2>
+    <h2>Security</h2>
     <p>
-      We may update this policy as the app evolves. The updated date at the top indicates the latest
-      published version.
+      Analytics and diagnostic data are transmitted to the relevant providers using their SDKs
+      and HTTPS/TLS network connections. Access to provider dashboards is restricted to
+      authorized project administrators. VMTR-01 applies client-side minimization and redaction
+      to Sentry reports. Files stored in shared Android media storage are protected according to
+      Android's storage access rules and your device's security settings, not by end-to-end
+      encryption supplied by VMTR-01.
     </p>
 
-    <h2>Contact</h2>
+    <h2>Retention and deletion</h2>
     <p>
-      For questions or privacy requests, contact Vireal through
-      <a href="https://github.com/vireal01">GitHub</a>.
+      Local recordings remain on your device until you delete them, subject to your device's own
+      storage, backup, and file-management behavior. You can delete recordings using the app
+      where supported or Android file-management tools. Removing the app or clearing its data
+      does not necessarily delete recordings previously written to shared storage.
+      App preferences and temporary local data may be removed when app data is cleared or the app
+      is uninstalled; Android backup or device-transfer features may retain eligible app data
+      according to your device and account settings.
+    </p>
+    <p>
+      Amplitude and Sentry retain telemetry under their configured project retention settings and
+      applicable service policies; it is not deleted merely because you uninstall VMTR-01.
+      To request information about, or deletion of, telemetry associated with your installation,
+      contact us using the method below. We may ask for information needed to locate matching
+      records; because analytics identifiers are pseudonymous and we do not have user accounts,
+      we may not always be able to match an individual request to existing telemetry.
+      We will review and handle verifiable requests as required by applicable law.
+    </p>
+
+    <h2>Children</h2>
+    <p>
+      VMTR-01 is a technical audio-recording tool and is not designed or marketed for children.
+      We do not knowingly request children's personal information.
+    </p>
+
+    <h2>Changes to this policy</h2>
+    <p>
+      We may revise this policy when the app or its data practices change. We will update the
+      effective date on this page; any additional notice required by law will be provided.
+    </p>
+
+    <h2>Developer and privacy contact</h2>
+    <p>
+      Developer: <strong>Vireal</strong> (VMTR-01). To ask a privacy question or submit an access
+      or deletion request, <a href="https://github.com/vireal01/vireal.dev/issues/new">open a
+      request in the vireal.dev GitHub repository</a>. Do not post sensitive personal information
+      or audio recordings in a public issue. You may also use the contact options available on
+      the <a href="https://github.com/vireal01">developer's GitHub profile</a>.
     </p>
     <p><a href="/vmtr01/">← Back to VMTR-01</a></p>
   </div>
