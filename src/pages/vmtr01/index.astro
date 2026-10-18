@@ -1,29 +1,47 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="VMTR01 — Vireal" description="VMTR01 is a multichannel USB audio recorder for Android.">
-  <p class="eyebrow">VMTR01</p>
+<BaseLayout title="VMTR-01 — Vireal" description="VMTR-01 is a multichannel USB audio recorder for Android.">
+  <p class="eyebrow">VMTR-01 · Android</p>
   <h1>Multichannel USB audio recording on Android.</h1>
   <p class="lede">
-    VMTR01 is an Android project for recording multichannel audio from compatible USB audio devices,
-    with an initial focus on the Teenage Engineering TX-6.
+    VMTR-01 is an Android app for capturing multichannel audio from compatible USB audio devices,
+    initially focused on the Teenage Engineering TX-6.
   </p>
   <div class="actions">
-    <a class="button primary" href="https://github.com/vireal01">GitHub</a>
-    <a class="button" href="/vmtr01/privacy/">Privacy</a>
+    <a class="button primary" href="#features">Explore features</a>
+    <a class="button" href="#privacy-policy">Privacy Policy</a>
     <a class="button" href="/vmtr01/support/">Support</a>
   </div>
 
-  <section class="section prose">
-    <h2>What it does</h2>
+  <section class="section prose" id="features">
+    <h2>Built for USB audio</h2>
     <p>
-      The project explores direct USB audio capture on Android, device compatibility,
-      multichannel recording, visualization and reliable file writing on real hardware.
+      Record audio from supported USB devices, manage channel configurations, monitor incoming
+      audio, and save recordings to your Android device. Device compatibility can vary by phone and USB hardware.
     </p>
-
-    <h2>Project status</h2>
+    <h2>Availability</h2>
     <p>
-      Active development. Store and release links will be added here when public builds are available.
+      VMTR-01 is in active development and testing. A public store link will be added when available.
+    </p>
+  </section>
+
+  <section class="section prose" id="privacy-policy" aria-labelledby="privacy-title">
+    <p class="eyebrow">Your data</p>
+    <h2 id="privacy-title">Privacy Policy</h2>
+    <p class="meta">Last updated: October 18, 2026</p>
+    <p>
+      Your recordings are saved on your device. VMTR-01 does not upload audio content to Vireal,
+      Amplitude, or Sentry. The app uses Amplitude for product analytics and Sentry for error diagnostics.
+    </p>
+    <p>
+      These services may process technical information such as app and Android versions, device model,
+      USB audio configuration, recording duration, feature usage, and crash or error diagnostics.
+      The app is not designed to send recording content, filenames, or precise location.
+    </p>
+    <p>
+      Read the <a href="/vmtr01/privacy/">full Privacy Policy</a> for details on collection,
+      third-party services, data retention, and your privacy choices.
     </p>
   </section>
 </BaseLayout>
